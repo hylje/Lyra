@@ -2,6 +2,8 @@ import functools
 
 from django.db import models
 from django.views.generic import base as views_base
+from django.template import loader
+from django import template
 
 _namespace_registry = {}
 
