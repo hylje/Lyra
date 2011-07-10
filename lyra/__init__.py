@@ -1,3 +1,3 @@
 from lyra import views
 
-root = lyra.Lyra()
+root = views.Lyra()
