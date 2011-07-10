@@ -48,6 +48,7 @@ class Lyra(base.App):
         return _(u"Calendar")
 
     def __init__(self, *args, **kwargs):
+        super(Lyra, self).__init__(*args, **kwargs)
         self.model.objects.register_app(
             (self.namespace, self.get_app_desc()), 
             self.app_name)
