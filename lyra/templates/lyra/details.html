@@ -1,0 +1,23 @@
+{% extends base %}
+
+{% load i18n %}
+
+{% block content_title %}{% blocktrans with object.description as desc %}Reservation: {{ desc }}{% endblocktrans %}{% endblock %}
+
+{% block content_navi %}
+<div class="reservation_navi">
+  <a href="{{ object.get_week_link }}">{% trans "Entire week" %}</a>
+</div>
+{% endblock %}
+
+{% block content_body %}
+<div class="reservation_detail">
+  <p class="event_whom">{{ object.get_creator_name }}</p>
+  {% if object.one_day %}
+  <p>{{ object.start|date:"G:i" }}&mdash;{{ object.stop|date:"G:i" }}</p>
+  {% else %}
+  <p>{{ object.start }}&mdash;{{ object.stop }}</p>
+  {% endif %}
+  <p class="longdesc">{{ object.long_description|linebreaks }}</p>
+</div>
+{% endblock %}

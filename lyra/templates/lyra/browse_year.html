@@ -1,0 +1,35 @@
+{% extends base %}
+
+{% load i18n %}
+
+{% block content_title %}Year {{ year }}{% endblock %}
+
+{% block content_navi %}
+<div class="content_navi">
+   <a href="{{ prev_year_link }}">
+     <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-previous.png">
+     {% trans "Last year" %}
+   </a>
+   <a href="{{ next_year_link }}">
+     <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-next.png">
+     {% trans "Next year" %}
+   </a>
+   <a href="{{ index_link }}">
+     <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-up.png">
+     {% trans "Other years" %}</a>
+
+</div>
+{% endblock %}
+
+{% block content_body %}
+<ul>
+{% for month in months %}
+<li>
+  <a href="{{ month.link }}">{{ month.date|date:"F"|capfirst }}</a>
+  {% if month.reservation_count %}
+  ({% blocktrans count month.reservation_count as reservation_count %}One reservation{% plural %}{{ reservation_count }} reservations{% endblocktrans %})
+  {% endif %}
+</li>
+{% endfor %}
+</ul>
+{% endblock %}

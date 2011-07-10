@@ -1,0 +1,11 @@
+{% extends "lyra/reserve.html" %}
+
+{% load i18n %}
+
+{% block content_title %}{% trans "Remove reservation" %}{% endblock %}
+
+{% block before_form %}
+<p>{% blocktrans %}Are you sure?{% endblocktrans %}</p>
+{% endblock %}
+
+{% block submit_text %}{% trans "Remove for good" %}{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "lyra/browse_week.html" %}
+
+{% load i18n %}
+
+{% block content_title %}{{ date }}{% endblock %}
+
+{% block sequence_navi %}
+<a href="{{ prev_day_link }}">
+  <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-previous.png">
+  {% trans "Previous day" %}
+</a> 
+
+<a href="{{ next_day_link }}">
+  <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-next.png">
+  {% trans "Next day" %}
+</a>
+{% endblock %}

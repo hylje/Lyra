@@ -1,0 +1,19 @@
+{% extends base %}
+
+{% load i18n %}
+
+{% block content_title %}{% trans "Browse calendar" %}{% endblock %}
+
+{% block content_body %}
+<ul>
+{% for year in years %}
+<li>
+  <a href="{{ year.link }}">{{ year.year.year }}</a>
+  {% if year.reservation_count %}
+  ({% blocktrans count year.reservation_count as reservation_count %}One reservation{% plural %}{{ reservation_count }} reservations{% endblocktrans %})
+  {% endif %}
+</li>
+{% endfor %}
+</ul>
+  
+{% endblock %}

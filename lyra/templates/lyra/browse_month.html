@@ -1,0 +1,96 @@
+{% extends base %}
+
+{% load i18n %}
+
+{% block content %}
+
+<h2>{{ app_name }}: {% block content_title %}
+{% blocktrans with month|date:"F"|capfirst as month %}{{ month }} {{ year }}{% endblocktrans %}
+{% endblock %}</h2>
+
+
+{% block content_navi %}
+<div class="content_navi">
+<a href="{{ prev_month_link }}">
+  <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-previous.png">
+  {% trans "Last month" %}</a>
+
+<a href="{{ next_month_link }}">
+  <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-next.png">
+  {% trans "Next month" %}</a>
+
+<a href="{{ year_link }}">
+  <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-up.png">
+  {% blocktrans %}Year {{ year }}{% endblocktrans %}</a>
+{% block extra_navi %}{% endblock %}
+</div>
+{% endblock %}
+
+{% block reserve_link %}
+<div class="reserve">
+  <a href="{{ reserve_link }}">{% trans "Reserve" %}</a>
+</div>
+{% endblock %}
+
+{% block content_body %}
+<table class="month_calendar">
+  <tr>
+    <th>{% trans "Week" %}</th>
+    <th>{% trans "Monday" %}</th>
+    <th>{% trans "Tuesday" %}</th>
+    <th>{% trans "Wednesday" %}</th>
+    <th>{% trans "Thursday" %}</th>
+    <th>{% trans "Friday" %}</th>
+    <th>{% trans "Saturday" %}</th>
+    <th>{% trans "Sunday" %}</th>
+  </tr>
+  {% for week in weeks %}
+  <tr>
+    <td>
+      <a href="{{ week.link }}">
+	{{ week.week }}</a>
+    </td>
+    {% for day in week.days %}
+    <td class="daycell {{ day.css_class }}">
+      <p class="month_day">
+	<span>{{ day.date.day }}</span>
+	{% if day.is_today %}
+	<span class="today-text">{% trans "Today" %}</span>
+	<img src="{{ MEDIA_URL }}lyra/img/today.png" alt="" class="today-gfx">
+	{% endif %}
+      </p>
+      {% if day.events %}
+      <p class="event_count">
+	{% blocktrans count day.events.count as counter %}Yksi varaus{% plural %}{{ counter }} varausta{% endblocktrans %}
+      </p>
+      <ul class="some_events">
+	{% for event in day.events|slice:":2" %}
+	<li>
+	  <p class="event_desc">
+	    <a href="{{ event.get_absolute_url }}">{{ event.description }}</a>
+	  </p>
+	  <p class="event_whom">
+	    {{ event.get_creator_name }}
+	  </p>
+	</li>
+	{% endfor %}
+      </ul>
+      {% endif %}
+      <a class="reserve_link" 
+	 href="{{ reserve_link }}?day={{ day.date|date:"Y-n-j" }}">
+	{% trans "Reserve" %}</a>
+    </td>
+    {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+
+<div class="content_navi">
+  <a href="{{ next_month_link }}" class="right-align">
+    <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-next.png">
+    {% trans "Next month" %}</a>
+</div>
+
+{% endblock %}
+
+{% endblock %}

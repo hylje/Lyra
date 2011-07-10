@@ -1,0 +1,25 @@
+<!doctype html>
+
+{% load i18n %}
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}lyra/css/monthreport.css">
+</head>
+
+<body>
+  <h1>{% blocktrans with date|date:"F"|capfirst as month and date.year as year %}On duty {{ month }} {{ year }}{% endblocktrans %}</h1>
+  <table>
+    <tr>
+      <th>{% trans "Date" %}</th>
+      <th>{% trans "Name and phone" %}</th>
+      <th>&nbsp;</th>
+    </tr>
+    {% for reservation in reservations %}
+    <tr>
+      <td>{{ reservation.start|date:"j.n" }}</td>
+      <td>{{ reservation.description }}</td>
+      <td class="empty">&nbsp;</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>

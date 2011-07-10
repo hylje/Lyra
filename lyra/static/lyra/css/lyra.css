@@ -1,0 +1,230 @@
+.content_navi a {
+  font-size: 130%;
+}
+.content_navi a + a { margin-left: 1em; }
+
+.content_navi a img {
+  margin-bottom: -5px;
+}
+
+.right-align {
+    float: right;
+}
+
+.reserve {
+    position: relative;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.reserve a {
+    font-size: 150%;
+    padding: 0.3em;
+    border: 1px solid silver;
+}
+
+.past-day .reserve_link {
+    color: gray;
+}
+
+.link { 
+    /* magic makes links clickable */ 
+    position: relative; 
+}
+
+.inline { 
+    display: inline-block; 
+    vertical-align: top;
+}
+
+.event_column { 
+    width: 130px; 
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+div.day_planner {
+    position: relative;
+    display: inline-block;
+    margin-right: 2em;
+}
+
+.day {
+    border-left: 1px dotted silver;
+    position: relative;
+}
+
+table.outer_layout {
+    margin-left: 3em;
+}
+
+div.hour_indicator {
+    position: absolute;
+    size: 8px;
+    width: 100%;
+}
+
+div.hour_indicator p {
+    margin: 0px;
+}
+
+div.hour_indicator div {
+    border-top: 1px dotted silver;
+    margin-top: -1px;
+}
+
+table.layout td {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+.event_column {
+    position: relative;
+}
+
+.event {
+    border: 1px solid silver;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    position: absolute;
+    z-index: 1;
+}
+
+.eventodd {
+    margin-left: 1em;
+}
+.eventeven {
+    margin-right: 1em;
+}
+
+.topmost {
+    z-index: 2;
+}
+
+.bottommost {
+    z-index: 0;
+}
+
+.yellowodd {
+    background: #FCF0AD;
+}
+.yelloweven {
+    background: #EBDF9C;
+}
+
+.greenodd {
+    background: #9AC29D;
+}
+
+.greeneven {
+    background: #89B18C;
+}
+
+.blueodd {
+    background: #69DEFF;
+}
+
+.blueeven {
+    background: #583BEF;
+}
+
+.redodd { 
+    background: #F35F6D;
+}
+
+.redeven {
+    background: #E24E5C;
+}
+
+
+
+h4 {
+    margin: 0px;
+}
+
+
+.daycell {
+    vertical-align: top;
+    width: 130px;
+    height: 150px;
+    background: #F7F7F7;
+}
+
+.daybody {
+    background: #F7F7F7;
+}
+
+.some_events {
+    padding: 0px;
+}
+
+.some_events li {
+    list-style: none;
+    margin: 0px;
+    margin-top: 0.3em;
+}
+
+.event_whom {
+    margin-left: 1em;
+}
+
+
+.style_preview {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+}
+
+.style_preview + .style_preview {
+    margin-left: 5px;
+}
+
+/* day backgrounds */
+
+.weekend {
+    background: #efffef;
+}
+
+.offmonth { 
+    /* base colour minus 333333 */
+    background: #CCCCCC;
+}
+
+.today {
+    /* today is always white */
+    background: white;
+}
+
+.offmonth .month_day {
+    color: #888888;
+}
+
+.offmonth-weekend {
+    background: #BCCCBC;
+}
+
+/* highlight today */
+
+.today-gfx {
+    position: absolute; 
+    top: -15px;
+    left: -15px;
+    z-index: 1;
+}
+
+.today-text {
+    color: silver;
+    float: right;
+}   
+
+.month_day {
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+}
+
+.month_day span { 
+    position: relative;
+    z-index: 2; 
+}

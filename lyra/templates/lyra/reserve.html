@@ -1,0 +1,37 @@
+{% extends base %}
+
+{% load i18n %}
+
+{% block content_title %}{% trans "Reserve" %}{% endblock %}
+
+{% block content_body %}
+
+{% block before_form %}{% endblock %}
+
+{% block form %}
+<form method="post" action="">
+  {% csrf_token %}
+  {% block form_body %}
+  {% for field in form %}
+  <div>
+    <h4>{{ field.label_tag }}</h4>
+    <p {% if field.errors %}class="errors"{% endif %}>{{ field }}</p>
+    <p class="help">{{ field.help_text }}</p>
+    {% if field.errors %}{{ field.errors }}{% endif %}
+  </div>
+  {% endfor %}
+  {% endblock %}
+  <input type="submit" value="{% block submit_text %}{% trans "Reserve" %}{% endblock %}">
+</form>
+{% endblock %}
+
+{% endblock %}
+
+{% block css %}
+{{ block.super }}
+{{ form.media.css }}
+{% endblock %}
+
+{% block js %}
+{{ form.media.js }}
+{% endblock %}

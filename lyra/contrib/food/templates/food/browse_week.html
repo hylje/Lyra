@@ -1,0 +1,26 @@
+{% extends "lyra/browse_week.html" %}
+
+{% load i18n %}
+
+{% block extra_navi %}
+<a href="{% url food:reserve_week year week %}">
+<img src="{{ MEDIA_URL }}lyra/img/22x22/actions/document-new.png" alt="">
+{% if business_hours %}
+{% trans "Change this menu" %}
+{% else %}
+{% trans "Create the week's menu" %}
+{% endif %}
+</a>
+<a href="{% url food:browse_week year week %}?print">
+<img src="{{ MEDIA_URL }}lyra/img/22x22/actions/document-print.png" alt="">
+{% trans "Printable" %}
+</a>
+{% endblock %}
+
+{% block reserve_link %}{% endblock %}
+
+{% block event_body %}
+<p><b>{{ event.description }}</b></p>
+<p>{{ event.start|date:"G:i" }}&mdash;{{ event.stop|date:"G:i" }}</p>
+<p>{{ event.long_description|linebreaks }}</p>
+{% endblock %}

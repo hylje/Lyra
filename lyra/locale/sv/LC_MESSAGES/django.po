@@ -1,0 +1,427 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-10 21:38+0300\n"
+"PO-Revision-Date: 2011-06-15 14:43\n"
+"Last-Translator: Ulla Blomqvist <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Translated-Using: django-rosetta 0.6.0\n"
+
+#: base.py:212
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: browse.py:29
+msgid "week"
+msgstr ""
+
+#: crud.py:113
+msgid "muokkaa"
+msgstr ""
+
+#: crud.py:122
+msgid "poista"
+msgstr ""
+
+#: forms.py:30
+msgid "The reservation should begin before it ends"
+msgstr ""
+
+#: forms.py:73
+#, python-format
+msgid "The reservation would conflict with %(conflict_count)s "
+msgstr ""
+
+#: forms.py:81 forms.py:86
+msgid "No overlap"
+msgstr ""
+
+#: models.py:13
+msgid "Yellow"
+msgstr ""
+
+#: models.py:14
+msgid "Green"
+msgstr ""
+
+#: models.py:15
+msgid "Blue"
+msgstr ""
+
+#: models.py:16
+msgid "Red"
+msgstr ""
+
+#: models.py:73
+msgid "In behalf of"
+msgstr ""
+
+#: models.py:74
+msgid "Only if reserving by request of someone else"
+msgstr ""
+
+#: models.py:75
+msgid "Reservation begins"
+msgstr ""
+
+#: models.py:76
+msgid "Reservation ends"
+msgstr ""
+
+#: models.py:79
+msgid "Short description"
+msgstr ""
+
+#: models.py:80
+msgid "Shows up on listings"
+msgstr ""
+
+#: models.py:83
+msgid "Long description"
+msgstr ""
+
+#: models.py:84
+msgid "Shows up only on detailed view"
+msgstr ""
+
+#: models.py:89
+msgid "Style"
+msgstr ""
+
+#: models.py:90
+msgid "Used to distinguish the reservation"
+msgstr ""
+
+#: models.py:112
+#, python-format
+msgid "%(behalf)s (tehnyt: %(person)s)"
+msgstr ""
+
+#: models.py:133
+msgid "Reservation"
+msgstr ""
+
+#: models.py:134
+msgid "Reservations"
+msgstr ""
+
+#: views.py:48
+msgid "Calendar"
+msgstr ""
+
+#: views.py:72
+msgid "date"
+msgstr ""
+
+#: views.py:75
+msgid "reservation"
+msgstr ""
+
+#: contrib/drive/__init__.py:14
+msgid "Ajonvarauskirja"
+msgstr ""
+
+#: contrib/duty/__init__.py:33
+msgid "Päivystysjakson ensimmäinen päivämäärä"
+msgstr ""
+
+#: contrib/duty/__init__.py:36
+msgid "Päivystysjakson viimeinen päivämäärä"
+msgstr ""
+
+#: contrib/duty/__init__.py:38
+msgid "Päivystystunnit jaksolla alkaen"
+msgstr ""
+
+#: contrib/duty/__init__.py:40
+msgid "Päivystystunnit jaksolla kunnes"
+msgstr ""
+
+#: contrib/duty/__init__.py:44 contrib/duty/models.py:18
+msgid "Takapäivystäjä"
+msgstr ""
+
+#: contrib/duty/__init__.py:45
+msgid "Lisää takapäivystäjiä ylläpitopaneelista"
+msgstr ""
+
+#: contrib/duty/__init__.py:64 contrib/duty/__init__.py:68
+msgid "Varauksen tulee alkaa ennen kuin se loppuu."
+msgstr ""
+
+#: contrib/duty/__init__.py:96
+msgid "Takapäivystys"
+msgstr ""
+
+#: contrib/duty/__init__.py:115
+msgid "tyoaika"
+msgstr ""
+
+#: contrib/duty/models.py:6
+msgid "Käyttäjätunnus"
+msgstr ""
+
+#: contrib/duty/models.py:8
+msgid "Puhelinnumero"
+msgstr ""
+
+#: contrib/duty/models.py:11
+msgid "Tiliöintinumero"
+msgstr ""
+
+#: contrib/duty/models.py:19
+msgid "Takapäivystäjiä"
+msgstr ""
+
+#: contrib/duty/templates/duty/browse_month.html:8
+msgid "Work hours report"
+msgstr ""
+
+#: contrib/duty/templates/duty/month_report.html:10
+#, python-format
+msgid "On duty %(month)s %(year)s"
+msgstr ""
+
+#: contrib/duty/templates/duty/month_report.html:13
+msgid "Date"
+msgstr ""
+
+#: contrib/duty/templates/duty/month_report.html:14
+msgid "Name and phone"
+msgstr ""
+
+#: contrib/food/__init__.py:11
+msgid "Lunch main course"
+msgstr ""
+
+#: contrib/food/__init__.py:16
+msgid "Lunch side courses"
+msgstr ""
+
+#: contrib/food/__init__.py:51
+msgid "Dinner main course"
+msgstr ""
+
+#: contrib/food/__init__.py:56
+msgid "Dinner side courses"
+msgstr ""
+
+#: contrib/food/__init__.py:96
+msgid "Menu"
+msgstr ""
+
+#: contrib/food/__init__.py:110
+msgid "viikon-varaus"
+msgstr ""
+
+#: contrib/food/__init__.py:110
+msgid "viikko"
+msgstr ""
+
+#: contrib/food/__init__.py:246
+msgid "(Päivä jätetty tyhjäksi)"
+msgstr ""
+
+#: contrib/food/templates/food/browse_week.html:9
+msgid "Change this menu"
+msgstr ""
+
+#: contrib/food/templates/food/browse_week.html:11
+msgid "Create the week's menu"
+msgstr ""
+
+#: contrib/food/templates/food/browse_week.html:16
+msgid "Printable"
+msgstr ""
+
+#: contrib/food/templates/food/landing.html:6 templates/lyra/landing.html:6
+msgid "This week"
+msgstr ""
+
+#: contrib/food/templates/food/reserve_week.html:5
+msgid "Change the menu"
+msgstr ""
+
+#: contrib/food/templates/food/reserve_week.html:6
+msgid "Save changes"
+msgstr ""
+
+#: contrib/food/templates/food/week_print.html:9
+#, python-format
+msgid "Menu for week %(week)s"
+msgstr ""
+
+#: templates/lyra/browse_day.html:10
+msgid "Previous day"
+msgstr ""
+
+#: templates/lyra/browse_day.html:15
+msgid "Next day"
+msgstr ""
+
+#: templates/lyra/browse_month.html:8
+#, python-format
+msgid "%(month)s %(year)s"
+msgstr ""
+
+#: templates/lyra/browse_month.html:16
+msgid "Last month"
+msgstr ""
+
+#: templates/lyra/browse_month.html:20 templates/lyra/browse_month.html:91
+msgid "Next month"
+msgstr ""
+
+#: templates/lyra/browse_month.html:24 templates/lyra/browse_week.html:27
+#, python-format
+msgid "Year %(year)s"
+msgstr ""
+
+#: templates/lyra/browse_month.html:31 templates/lyra/browse_month.html:81
+#: templates/lyra/browse_week.html:42 templates/lyra/browse_week.html.py:65
+#: templates/lyra/reserve.html:5 templates/lyra/reserve.html.py:24
+msgid "Reserve"
+msgstr ""
+
+#: templates/lyra/browse_month.html:38
+msgid "Week"
+msgstr ""
+
+#: templates/lyra/browse_month.html:39
+msgid "Monday"
+msgstr ""
+
+#: templates/lyra/browse_month.html:40
+msgid "Tuesday"
+msgstr ""
+
+#: templates/lyra/browse_month.html:41
+msgid "Wednesday"
+msgstr ""
+
+#: templates/lyra/browse_month.html:42
+msgid "Thursday"
+msgstr ""
+
+#: templates/lyra/browse_month.html:43
+msgid "Friday"
+msgstr ""
+
+#: templates/lyra/browse_month.html:44
+msgid "Saturday"
+msgstr ""
+
+#: templates/lyra/browse_month.html:45
+msgid "Sunday"
+msgstr ""
+
+#: templates/lyra/browse_month.html:58
+msgid "Today"
+msgstr ""
+
+#: templates/lyra/browse_month.html:64
+#, python-format
+msgid "Yksi varaus"
+msgid_plural "%(counter)s varausta"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/lyra/browse_week.html:8
+#, python-format
+msgid "Week %(week)s of year %(year)s"
+msgstr ""
+
+#: templates/lyra/browse_week.html:16
+msgid "Last week"
+msgstr ""
+
+#: templates/lyra/browse_week.html:21
+msgid "Next week"
+msgstr ""
+
+#: templates/lyra/browse_week.html:50
+msgid "Hour"
+msgstr ""
+
+#: templates/lyra/browse_week.html:85
+msgid "Edit"
+msgstr ""
+
+#: templates/lyra/browse_week.html:88
+msgid "Delete"
+msgstr ""
+
+#: templates/lyra/browse_week.html:91
+#, python-format
+msgid "One more word in details"
+msgid_plural "%(desc_words)s words more in details"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/lyra/browse_week.html:107
+msgid "No reservations this week"
+msgstr ""
+
+#: templates/lyra/browse_year.html:11
+msgid "Last year"
+msgstr ""
+
+#: templates/lyra/browse_year.html:15
+msgid "Next year"
+msgstr ""
+
+#: templates/lyra/browse_year.html:19
+msgid "Other years"
+msgstr ""
+
+#: templates/lyra/browse_year.html:30 templates/lyra/index.html:13
+#, python-format
+msgid "One reservation"
+msgid_plural "%(reservation_count)s reservations"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/lyra/details.html:5
+#, python-format
+msgid "Reservation: %(desc)s"
+msgstr ""
+
+#: templates/lyra/details.html:9
+msgid "Entire week"
+msgstr ""
+
+#: templates/lyra/index.html:5
+msgid "Browse calendar"
+msgstr ""
+
+#: templates/lyra/remove.html:5
+msgid "Remove reservation"
+msgstr ""
+
+#: templates/lyra/remove.html:8
+msgid "Are you sure?"
+msgstr ""
+
+#: templates/lyra/remove.html:11
+msgid "Remove for good"
+msgstr ""
+
+#: templates/lyra/update.html:5
+msgid "Update reservation"
+msgstr ""
+
+#: templates/lyra/update.html:7
+msgid "Update"
+msgstr ""

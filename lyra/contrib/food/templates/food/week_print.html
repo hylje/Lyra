@@ -1,0 +1,33 @@
+{% load i18n %}
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}lyra/css/print.css">
+</head>
+<body class="landscape">
+
+<h1>
+  <img src="{{ MEDIA_URL }}lyra/img/header.png" id="header">
+  {% blocktrans %}Menu for week {{ week }}{% endblocktrans %}
+</h1>
+
+<table>
+  {% for row in table_rows %}
+  <tr>
+    {% for column in row %}
+    <td {% if column.date %}class="weekday"{% endif %}
+	{% if column.label %}class="label"{% endif %}
+	{% if column.description %}class="food"{% endif %}>
+      {% if not column %}&nbsp;{% endif %}
+      {% if column.date %}{{ column.date|date:"l j.n"|capfirst }}{% endif %}
+      {% if column.label %}{{ column.label }}{% endif %}
+
+      {% if column.description %}
+      <h4>{{ column.description }}</h4>
+      {{ column.long_description|linebreaks }}
+      {% endif %}
+    </td>
+    {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+
+</body>

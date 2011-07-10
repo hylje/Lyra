@@ -1,0 +1,110 @@
+{% extends base %}
+
+{% load i18n %}
+
+{% block content %}
+<div id="content">
+
+<h2>{{ app_name }}: {% block content_title %}{% blocktrans %}Week {{ week }} of year {{ year }}{% endblocktrans %}{% endblock %}</h2>
+
+
+{% block content_navi %}
+<div class="content_navi">
+  {% block sequence_navi %}
+  <a href="{{ prev_week_link }}">
+    <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-previous.png">
+    {% trans "Last week" %}
+  </a> 
+  
+  <a href="{{ next_week_link }}">
+    <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-next.png">
+    {% trans "Next week" %}
+  </a>
+  {% endblock %}
+  {% for year in years_mentioned %}
+  <a href="{{ year.link }}">
+    <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-up.png">
+    {% blocktrans with year.date|date:"Y" as year %}Year {{ year }}{% endblocktrans %}</a>
+  {% endfor %}
+  {% for month in months_mentioned %}
+  <a href="{{ month.link }}">
+    <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-jump.png">
+    <img src="{{ MEDIA_URL }}lyra/img/Calendar.gif"> 
+    {{ month.date|date:"F Y"|capfirst }}
+  </a>
+  {% endfor %}
+  {% block extra_navi %}{% endblock %}
+</div>
+{% endblock %}
+
+{% block reserve_link %}
+<div class="reserve">
+  <a href="{{ reserve_link }}">{% trans "Reserve" %}</a>
+</div>
+{% endblock %}
+
+{% if business_hours %}
+<div class="day_planner" style="max-height: {{ table_max_height }}px;">
+  <div class="hour_indicator">
+    <h3 class="compact">&nbsp;</h3>
+    <p>{% trans "Hour" %}</p>
+    {% for hour in business_hours %}
+    <div style="height: {{ hour_height }}px;">{{ hour }}:00</div>
+    {% endfor %}
+  </div>
+  <table class="layout outer_layout">
+    <tr>
+    {% for day in days %}
+    <td class="daybody {{ day.css_class }}">
+    <h3 class="compact"><a href="{{ day.link }}">{{ day.date|date:"l"|capfirst }}</a></h3>
+    <div>
+      <span>{{ day.date|date:"j.n" }}</span>
+      <span class="link"> 
+	<a class="reserve_link" 
+	   href="{{ reserve_link }}?day={{ day.date|date:"Y-n-j" }}">
+	  {% trans "Reserve" %}</a>
+      </span>
+    </div>
+    <table class="day layout">
+      <tr>
+      {% for event_column in day.event_columns %}
+      <td class="column_container">
+	<div class="event_column" style="height: {{ table_max_height }}px;">
+	{% for event in event_column %}
+	{% cycle "odd" "even" as rowcolors silent %}
+	<div class="event {{ event.style }}{{ rowcolors }} event{{ rowcolors }}" style="min-height: {{ event.height }}px; top: {{ event.top }}px;">
+	  {% block event_body %}
+	  <h4><a href="{{ event.link }}">{{ event.description }}</a></h4>
+	  <p class="event_whom">{{ event.creator_name }}</p>
+	  {% if event.one_day %}
+	  <p>{{ event.start|date:"G:i" }}&mdash;{{ event.stop|date:"G:i" }}</p>
+	  {% else %}
+	  <p>{{ event.start|date:"l j G:i" }}&mdash;{{ event.stop|date:"l j G:i" }}</p>
+	  {% endif %}
+	  {% if event.can_update %}
+	  <a href="{{ event.update_link }}">{% trans "Edit" %}</a>
+	  {% endif %}
+	  {% if event.can_remove %}
+	  <a href="{{ event.remove_link }}">{% trans "Delete" %}</a>
+	  {% endif %}
+	  {% if event.long_description %}
+	  <a href="{{ event.link }}">{% blocktrans count event.long_description|wordcount as desc_words %}One more word in details{% plural %}{{ desc_words }} words more in details{% endblocktrans %}</a>
+	  {% endif %}
+	  {% endblock %}
+	</div>
+	{% endfor %}
+	</div>
+      </td>
+    {% endfor %}
+      </tr>
+    </table>
+    </td>
+  {% endfor %}
+    </tr>
+  </table>
+</div>
+{% else %}
+<h3>{% trans "No reservations this week" %}</h3>
+{% endif %}
+</div>
+{% endblock %}
