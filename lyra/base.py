@@ -21,6 +21,10 @@ class HasUrls(object):
         raise NotImplementedError
      
 class SubApp(HasUrls):
+    @property
+    def urls(self):
+        return self._get_urls()
+
     def __init__(self, app):
         self.app = app
 
