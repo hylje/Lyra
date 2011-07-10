@@ -16,7 +16,7 @@ class Browse(base.SubApp):
     day_class = day.Day
     
     def __init__(self, *args, **kwargs):
-        super(BrowserApp, self).__init__(*args, **kwargs)
+        super(Browse, self).__init__(*args, **kwargs)
         self.calendar = self.calendar_mod.Calendar()
 
     def _get_urls(self):
