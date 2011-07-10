@@ -129,7 +129,9 @@ class Lyra(base.App):
                 return self.forbidden(request, exc.reason)
         
     def forbidden(self, request, reason="admin"):
-        return self.get_response("forbidden", {"reason": reason}) 
+        return self.get_response(request, 
+                                 template="forbidden", 
+                                 context={"reason": reason}) 
 
     def get_a_couple_events(self):
         now = self.datetime.datetime.now()
