@@ -1,4 +1,5 @@
 from django.db import models
+from django.views.generic import base as views_base
 
 _namespace_registry = {}
 
