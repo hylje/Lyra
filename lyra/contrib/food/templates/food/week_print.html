@@ -1,11 +1,11 @@
 {% load i18n %}
 <head>
-  <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}lyra/css/print.css">
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}lyra/css/print.css">
 </head>
 <body class="landscape">
 
 <h1>
-  <img src="{{ MEDIA_URL }}lyra/img/header.png" id="header">
+  <img src="{{ STATIC_URL }}lyra/img/header.png" id="header">
   {% blocktrans %}Menu for week {{ week }}{% endblocktrans %}
 </h1>
 

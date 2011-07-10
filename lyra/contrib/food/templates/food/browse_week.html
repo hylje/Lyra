@@ -4,7 +4,7 @@
 
 {% block extra_navi %}
 <a href="{% url food:reserve_week year week %}">
-<img src="{{ MEDIA_URL }}lyra/img/22x22/actions/document-new.png" alt="">
+<img src="{{ STATIC_URL }}lyra/img/22x22/actions/document-new.png" alt="">
 {% if business_hours %}
 {% trans "Change this menu" %}
 {% else %}
@@ -12,7 +12,7 @@
 {% endif %}
 </a>
 <a href="{% url food:browse_week year week %}?print">
-<img src="{{ MEDIA_URL }}lyra/img/22x22/actions/document-print.png" alt="">
+<img src="{{ STATIC_URL }}lyra/img/22x22/actions/document-print.png" alt="">
 {% trans "Printable" %}
 </a>
 {% endblock %}

@@ -12,15 +12,15 @@
 {% block content_navi %}
 <div class="content_navi">
 <a href="{{ prev_month_link }}">
-  <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-previous.png">
+  <img src="{{ STATIC_URL }}lyra/img/22x22/actions/go-previous.png">
   {% trans "Last month" %}</a>
 
 <a href="{{ next_month_link }}">
-  <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-next.png">
+  <img src="{{ STATIC_URL }}lyra/img/22x22/actions/go-next.png">
   {% trans "Next month" %}</a>
 
 <a href="{{ year_link }}">
-  <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-up.png">
+  <img src="{{ STATIC_URL }}lyra/img/22x22/actions/go-up.png">
   {% blocktrans %}Year {{ year }}{% endblocktrans %}</a>
 {% block extra_navi %}{% endblock %}
 </div>
@@ -56,7 +56,7 @@
 	<span>{{ day.date.day }}</span>
 	{% if day.is_today %}
 	<span class="today-text">{% trans "Today" %}</span>
-	<img src="{{ MEDIA_URL }}lyra/img/today.png" alt="" class="today-gfx">
+	<img src="{{ STATIC_URL }}lyra/img/today.png" alt="" class="today-gfx">
 	{% endif %}
       </p>
       {% if day.events %}
@@ -87,7 +87,7 @@
 
 <div class="content_navi">
   <a href="{{ next_month_link }}" class="right-align">
-    <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-next.png">
+    <img src="{{ STATIC_URL }}lyra/img/22x22/actions/go-next.png">
     {% trans "Next month" %}</a>
 </div>
 

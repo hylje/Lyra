@@ -12,24 +12,24 @@
 <div class="content_navi">
   {% block sequence_navi %}
   <a href="{{ prev_week_link }}">
-    <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-previous.png">
+    <img src="{{ STATIC_URL }}lyra/img/22x22/actions/go-previous.png">
     {% trans "Last week" %}
   </a> 
   
   <a href="{{ next_week_link }}">
-    <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-next.png">
+    <img src="{{ STATIC_URL }}lyra/img/22x22/actions/go-next.png">
     {% trans "Next week" %}
   </a>
   {% endblock %}
   {% for year in years_mentioned %}
   <a href="{{ year.link }}">
-    <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-up.png">
+    <img src="{{ STATIC_URL }}lyra/img/22x22/actions/go-up.png">
     {% blocktrans with year.date|date:"Y" as year %}Year {{ year }}{% endblocktrans %}</a>
   {% endfor %}
   {% for month in months_mentioned %}
   <a href="{{ month.link }}">
-    <img src="{{ MEDIA_URL }}lyra/img/22x22/actions/go-jump.png">
-    <img src="{{ MEDIA_URL }}lyra/img/Calendar.gif"> 
+    <img src="{{ STATIC_URL }}lyra/img/22x22/actions/go-jump.png">
+    <img src="{{ STATIC_URL }}lyra/img/Calendar.gif"> 
     {{ month.date|date:"F Y"|capfirst }}
   </a>
   {% endfor %}
