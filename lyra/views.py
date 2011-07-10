@@ -83,7 +83,7 @@ class Lyra(base.App):
         today = self.datetime.date.today()
         year, week, weekday = today.isocalendar()
 
-        return self.browser.week_display.as_view(app=self)(
+        return self.browse.week_display.as_view(app=self)(
             request, 
             year, 
             week, 
