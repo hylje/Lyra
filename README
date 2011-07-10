@@ -1,0 +1,17 @@
+Lyra is a flexible calendaring and day planning application for Django.
+
+WHAT DO
+
+- pip install lyra
+- add lyra to INSTALLED_APPS
+- add lyra.urls to your URLconf
+- syncdb
+
+NOW WHAT
+
+Check out the code, subclass `lyra.views.Lyra`. 
+There are some examples on how to do so in `lyra.contrib`.
+
+LICENSE
+
+BSD 3-clause, see LICENSE

@@ -9,8 +9,6 @@ from django.core import exceptions as django_exceptions
 
 from lyra import models
 
-from sivari import glue
-
 class Reservation(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.person = kwargs.pop("person")

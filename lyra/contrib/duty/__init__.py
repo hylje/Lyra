@@ -23,16 +23,14 @@ class WeekFacade(object):
 
     def get_absolute_url(self):
         return self.urlresolvers.reverse(
-            "%s:browse_week" % glue.get_app_path(self.namespace),
+            "%s:browse_week" % self.namespace,
             kwargs={"year": self.year, "week": self.week})
             
 
 class DutyReservation(forms.Form):
     period_start_date = forms.DateField(
-        widget=glue_widgets.VisualDateInput,
         label=_(u"Päivystysjakson ensimmäinen päivämäärä"))
     period_stop_date = forms.DateField(
-        widget=glue_widgets.VisualDateInput,
         label=_(u"Päivystysjakson viimeinen päivämäärä"))
     period_time_start = forms.TimeField(
         label=_(u"Päivystystunnit jaksolla alkaen"))

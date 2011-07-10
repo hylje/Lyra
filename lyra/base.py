@@ -123,7 +123,7 @@ class App(HasUrls):
 
     def reverse(self, view_name, kwargs={}):
         return self.urlresolvers.reverse(
-            "%s:%s" % (self.glue.get_app_path(self.namespace), view_name),
+            "%s:%s" % (self.namespace, view_name),
             args=(),
             kwargs=kwargs,
             current_app=self.namespace)
