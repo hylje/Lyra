@@ -1,3 +1,5 @@
+import functools
+
 from django.db import models
 from django.views.generic import base as views_base
 
