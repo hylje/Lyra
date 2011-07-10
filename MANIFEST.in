@@ -1,0 +1,5 @@
+recursive-include lyra/static *.js *.css *.png *.gif
+recursive-include lyra/templates/lyra *.html
+recursive-include lyra/contrib/food/templates/food *.html
+recursive-include lyra/contrib/duty/templates/duty *.html
+include LICENSE README

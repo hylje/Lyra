@@ -10,5 +10,4 @@ setup(name='lyra',
                 'lyra.contrib',
                 'lyra.contrib.duty',
                 'lyra.contrib.food',
-                'lyra.contrib.drive',]
-     )
+                'lyra.contrib.drive',])
