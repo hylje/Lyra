@@ -31,15 +31,15 @@ class Lyra(base.App):
 
     from lyra import models
     from lyra import forms
-    from lyra import browse
-    from lyra import crud
+    from lyra import browse as browse_mod
+    from lyra import crud as crud_mod
 
     model = models.Reservation
     app_name="lyra"
 
     # subapplications
-    browse_class = browse.Browse
-    crud_class = crud.Crud
+    browse_class = browse_mod.Browse
+    crud_class = crud_mod.Crud
 
     # errors
     perm_error = PermissionError
@@ -55,7 +55,7 @@ class Lyra(base.App):
 
         self._queryset = None
 
-        self.browser = self.browse_class(app=self)
+        self.browse = self.browse_class(app=self)
         self.crud = self.crud_class(app=self)
 
     @property
