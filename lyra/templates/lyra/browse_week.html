@@ -38,9 +38,11 @@
 {% endblock %}
 
 {% block reserve_link %}
+{% if reserve_link %}
 <div class="reserve">
   <a href="{{ reserve_link }}">{% trans "Reserve" %}</a>
 </div>
+{% endif %}
 {% endblock %}
 
 {% if business_hours %}
