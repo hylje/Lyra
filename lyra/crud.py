@@ -4,6 +4,12 @@ from django.utils.translation import ugettext as _
 from django.views.generic import edit
 from django.views.generic import detail
 
+class CommonContext(object):
+    def get_context_data(self, **kwargs):
+        data = super(CommonContext, self).get_context_data(**kwargs)
+        data.update({"app_name": self.app.get_app_desc()})
+        return data
+
 class FormArgumentsMixin(object):
     import datetime
 
@@ -36,6 +42,7 @@ class FormArgumentsMixin(object):
 class ReservationCreate(base.AppAwareTemplate, 
                         base.AppAwareSecurityMixin,
                         FormArgumentsMixin,
+                        CommonContext,
                         edit.BaseCreateView):
     permissions = ["view", "create"]
     template_name = "reserve"
@@ -43,6 +50,7 @@ class ReservationCreate(base.AppAwareTemplate,
 class ReservationUpdate(base.AppAwareTemplate, 
                         base.AppAwareObjectSecurityMixin, 
                         FormArgumentsMixin,
+                        CommonContext,
                         edit.BaseUpdateView):
     permissions = ["view", "edit"]
     template_name = "update"
@@ -50,6 +58,7 @@ class ReservationUpdate(base.AppAwareTemplate,
 class ReservationDeletion(base.AppAwareTemplate, 
                           base.AppAwareObjectSecurityMixin,
                           detail.SingleObjectMixin,
+                          CommonContext,
                           edit.FormView):
     permissions = ["view", "delete"]
     template_name = "remove"
@@ -72,6 +81,7 @@ class ReservationDeletion(base.AppAwareTemplate,
 
 class ReservationDetail(base.AppAwareTemplate,
                         base.AppAwareObjectSecurityMixin,
+                        CommonContext,
                         detail.BaseDetailView):
     template_name = "details"
 

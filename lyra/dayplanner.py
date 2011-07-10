@@ -73,7 +73,7 @@ class DayPlanner(views_base.View):
                                      * (len(self.business_hours))),
                 "reserve_link": (self.app.user_can_create(self.request) 
                                  and self.app.reverse("reserve")),
-                "app_name": self.app.get_app_name(),}, 
+                "app_name": self.app.get_app_desc(),}, 
                          **extra_context))
 
     def annotate_vacancies(self, column):

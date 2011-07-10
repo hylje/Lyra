@@ -59,7 +59,7 @@ class Browse(base.SubApp):
                                 "year": year.year}),
                      "reservation_count": self.app.queryset.year(year.year).count()}
                     for year in all_years],
-                "app_name": self.app.get_app_name(), 
+                "app_name": self.app.get_app_desc(), 
                 },)
 
     def browse_year(self, request, year):
@@ -83,7 +83,7 @@ class Browse(base.SubApp):
                      "reservation_count": self.app.queryset.month(year, m).count()}
                     for m 
                     in range(1, 13)],
-                "app_name": self.app.get_app_name(),  
+                "app_name": self.app.get_app_desc(),  
                 "index_link": self.app.reverse("browse_index"),
              },)
 
@@ -149,5 +149,5 @@ class Browse(base.SubApp):
                 "next_month": next_month,
                 "reserve_link": self.app.reverse("reserve"),
                 "year_link": self.app.reverse("browse_year", {"year": year}),
-                "app_name": self.app.get_app_name(),
+                "app_name": self.app.get_app_desc(),
                 },)                
