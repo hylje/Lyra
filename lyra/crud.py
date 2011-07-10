@@ -45,7 +45,7 @@ class ReservationUpdate(base.AppAwareTemplate,
                         FormArgumentsMixin,
                         edit.BaseUpdateView):
     permissions = ["view", "edit"]
-    template_name = "reserve"
+    template_name = "update"
 
 class ReservationDeletion(base.AppAwareTemplate, 
                           base.AppAwareObjectSecurityMixin,
@@ -98,7 +98,6 @@ class Crud(base.SubApp):
                     '^$', 
                     self.create.as_view(
                         app=self.app,
-                        view_name="reserve",
                         form_class=getattr(self, 
                                            "reservation_form_create", 
                                            self.reservation_form)), 
@@ -106,14 +105,12 @@ class Crud(base.SubApp):
             self.urlconf.url(
                     '^(?P<pk>\d+)/$',
                     self.detail.as_view(
-                        app=self.app,
-                        view_name="details"),
+                        app=self.app),
                     name="details"),
             self.urlconf.url(
                     '^(?P<pk>\d+)/%s/$' % (_("muokkaa")),
                     self.update.as_view(
                         app=self.app,
-                        view_name="reserve",
                         form_class=getattr(self, 
                                            "reservation_form_edit", 
                                            self.reservation_form)), 
@@ -122,6 +119,5 @@ class Crud(base.SubApp):
                     '^(?P<pk>\d+)/%s/$' % (_("poista")),
                     self.delete.as_view(
                         app=self.app,
-                        view_name="remove",
                         form_class=self.confirm_form), 
                     name="remove")])
