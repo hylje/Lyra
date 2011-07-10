@@ -136,5 +136,5 @@ class Reservation(models.Model):
 
 base.clear_choices(Reservation)
 register_app = base.make_registerer(Reservation)
-ReservationQuerySet.register_app = register_app
+ReservationQuerySet.register_app = staticmethod(register_app)
         
