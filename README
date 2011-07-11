@@ -14,8 +14,28 @@ WHAT DO
 
 NOW WHAT
 
-Check out the code, subclass `lyra.views.Lyra`. 
-There are some examples on how to do so in `lyra.contrib`.
+Check out the code, subclass `lyra.views.Lyra` and set app_name to
+something else than "lyra", e.g. "octavia". You can then put your
+customized templates in "octavia/" somewhere in template lookup path,
+and may {% extend %} corresponding "lyra/" templates. Note that you do
+not need to override all, or even any templates: Lyra will search the
+parent classes' template paths too (looking up with app_name), in
+Python method resolution order. Thanks to Django's URL namespacing,
+you can run as many however customized instances of Lyra in your
+project.
+
+You can use a different model than `lyra.models.Reservation` by
+assigning your own in your subclass, to the `model` attribute. The new
+model should have `start` and `stop` database fields and use (a
+subclass of) `lyra.models.ReservationQuerySet.as_manager()` as its
+`objects` manager. You will also need to provide your own forms to the
+CRUD, as attributes `reservation_form` and optionally
+`reservation_create_form`. 
+
+You can subclass inline for simple modifications.
+
+There are some primitive, highly untested examples on subclassing in
+`lyra.contrib`.
 
 LICENSE
 
