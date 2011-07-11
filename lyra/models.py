@@ -35,13 +35,13 @@ class ReservationQuerySet(base.QuerySet):
     
     def date_range(self, start_date, stop_date):
         return self.filter(
-                # kokonaan sisällä
+                # contained entirely
                 Q(start__gte=start_date,
                     stop__lte=stop_date)
-                # alkaa ennen ja loppuu alun jälkeen
+                # begins before and ends after begin
                 | Q(start__lt=start_date,
                     stop__gt=start_date)
-                # alkaa ennen loppua ja loppuu lopun jälkeen
+                # begins before end and ends after end
                 | Q(start__lt=stop_date,
                     stop__gt=stop_date))
 
@@ -109,7 +109,7 @@ class Reservation(models.Model):
 
     def get_creator_name(self):
         if self.person_behalf:
-            return _(u"%(behalf)s (tehnyt: %(person)s)") % {
+            return _(u"%(behalf)s (on behalf of: %(person)s)") % {
                 "behalf": self.person_behalf, 
                 "person": self.person.get_full_name()}
         return self.person.get_full_name()
