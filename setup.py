@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(name='lyra',
-      version='1.2',
+      version='1.3',
       description='time management app for django',
       author='Leo Honkanen',
       author_email='leo.o.honkanen@gmail.com',
