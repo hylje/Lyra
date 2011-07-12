@@ -161,6 +161,7 @@ class AppAwareMixin(object):
 
 class AppAwareTemplate(views_base.TemplateResponseMixin):
     app = None
+    base_template_names = ["base"]
 
     @requires_app
     def render_to_response(self, *args, **kwargs):
@@ -170,9 +171,16 @@ class AppAwareTemplate(views_base.TemplateResponseMixin):
 
     def get_context_data(self, **kwargs):
         data = super(AppAwareTemplate, self).get_context_data(**kwargs)
+
+        base_template_names = list(self.base_template_names) 
+
+        if (self.request.is_ajax() 
+            or (settings.DEBUG and "_lyra_ajax" in request.GET)):
+            base_template_names.insert(0, "ajax_base")
+
         data.update({
                 "base": loader.select_template(self.app.get_template_names(
-                    ["base"],
+                    base_template_names,
                     denominator=self.get_denominator())),
                 })
         return data
