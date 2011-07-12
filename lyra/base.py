@@ -176,7 +176,7 @@ class AppAwareTemplate(views_base.TemplateResponseMixin):
         base_template_names = list(self.base_template_names) 
 
         if (self.request.is_ajax() 
-            or (settings.DEBUG and "_lyra_ajax" in request.GET)):
+            or (settings.DEBUG and "_lyra_ajax" in self.request.GET)):
             base_template_names.insert(0, "ajax_base")
 
         data.update({
