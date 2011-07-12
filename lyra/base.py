@@ -109,7 +109,12 @@ class App(HasUrls):
                      template_select=None):
 
         if extend_template is None:
-            extend_template = getattr(self, "base_template", "base")
+            extend_templates = [getattr(self, "base_template", "base")]
+        else:
+            extend_templates = [extend_template]
+
+        if request.is_ajax() or "_lyra_ajax" in request.GET:
+            extend_templates.insert(0, "ajax_base")
 
         if template and template_select is None:
             template_select = [template]
@@ -124,7 +129,7 @@ class App(HasUrls):
             self.extra_context,
             **{
                 "base": loader.select_template(
-                    self.get_template_names([extend_template], denominator))}
+                    self.get_template_names(extend_templates, denominator))}
             )
         context = dict(base_context, **context)
         ctx = template_module.RequestContext(request, context)
