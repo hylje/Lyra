@@ -6,6 +6,7 @@ from django.views.generic import base as views_base
 from django.template import loader
 from django import template as template_module
 from django import http
+from django.conf import settings
 
 _namespace_registry = {}
 
