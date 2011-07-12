@@ -113,7 +113,8 @@ class App(HasUrls):
         else:
             extend_templates = [extend_template]
 
-        if request.is_ajax() or "_lyra_ajax" in request.GET:
+        if (request.is_ajax() 
+            or (settings.DEBUG and "_lyra_ajax" in request.GET)):
             extend_templates.insert(0, "ajax_base")
 
         if template and template_select is None:
